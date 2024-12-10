@@ -1,0 +1,82 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.profile__avatar {
+  margin-right: 20px;
+}
+
+.profile__name {
+  margin: 0 0 12px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
+}
+
+.profile__description {
+  margin: 0;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+  justify-self: space-between;
+  width: 420px;
+  height: 190px;
+}
+
+.profile__edit-btn {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  border: none;
+  color: rgba(33, 33, 33, 1);
+  background-color: rgba(33, 33, 33, 0);
+  opacity: 0.7;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  background-repeat: no-repeat;
+  text-align: left;
+  border: none;
+}
+
+.profile__edit-btn:hover {
+  cursor: pointer;
+  color: rgba(33, 33, 33, 1);
+  transition: color 0.5s ease-in;
+}
+
+.profile__edit-btn-text {
+  margin-right: auto;
+  margin-right: 20px;
+}
+
+.profile__add-btn {
+  display: flex;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  margin-left: auto;
+  margin-top: auto;
+  padding: 18px 32px 18px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  color: rgba(33, 33, 33, 1);
+  background: #212121;
+  border: none;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fcf5e5;
+}
