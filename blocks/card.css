@@ -39,6 +39,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-decoration-skip-ink: none;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 627px) {
