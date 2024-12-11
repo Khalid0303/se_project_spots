@@ -1,6 +1,8 @@
 .page {
   background: rgba(252, 245, 229, 1);
   font-family: Poppins, Arial, Helvetica, sans-serif;
+  /* outline: 1px solid red;
+  box-sizing: border-box; */
 }
 
 .page__section {
