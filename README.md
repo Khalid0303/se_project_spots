@@ -16,7 +16,7 @@ With **Spots**, users can:
 
 Whether you’re taking your first steps into a new hobby or looking to deepen your expertise, **Spots** provides the tools and resources to spark creativity, foster connections, and honor the legacy of those who inspire us to dream big.
 
-## Figna Design
+## Figma Design
 
 The design for the project was created using Figma. You can view the design file to get a better understanding of how the final project is structured:
 
