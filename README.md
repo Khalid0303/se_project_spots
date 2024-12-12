@@ -1,21 +1,35 @@
-# Project 3: Spots
+<<<<<<< HEAD
 
-### Overview
+# Spots
 
-- Intro
-- Figma
-- Images
+An image-sharing platform inspired by adventure and passion.
 
-**Intro**
+## Description
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+**Spots** is a unique platform that celebrates the spirit of discovery and connection. Drawing inspiration from Bessie Coleman, the first African-American and Native American female aviator, **Spots** combines the thrill of exploring new hobbies with the excitement of sharing these passions with others. Just as Coleman broke barriers in aviation, **Spots** encourages users to break through boundaries by embracing new hobbies and exploring personal interests.
 
-**Figma**
+With **Spots**, users can:
 
-- [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
+- Discover and explore a wide range of hobbies, from aviation and art to music and more.
+- Share their own hobbies, stories, and inspirations with a vibrant community.
+- Learn about Bessie Coleman’s groundbreaking journey and find inspiration in her daring pursuit of her dreams.
 
-**Images**
+Whether you’re taking your first steps into a new hobby or looking to deepen your expertise, **Spots** provides the tools and resources to spark creativity, foster connections, and honor the legacy of those who inspire us to dream big.
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
+## Figna Design
 
-Good luck and have fun!
+The design for the project was created using Figma. You can view the design file to get a better understanding of how the final project is structured:
+
+- [Figma Design for Spots](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
+
+## Tech Stack
+
+-HTML
+-CSS
+-Responsive Design
+
+## Deployment
+
+This webpage is deployed to GitHub Pages:
+
+-Deployment Link: https://khalid0303.github.io/se_project_spots
