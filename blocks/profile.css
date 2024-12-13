@@ -1,13 +1,14 @@
 .profile {
   display: flex;
   padding: 34px 0 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
 }
 
 .profile__avatar {
   margin-right: 20px;
+  object-fit: cover;
   font-size: 20px;
-  margin-bottom: 12px;
   width: 190px;
   height: 190px;
 }
@@ -15,6 +16,7 @@
 .profile__name {
   margin: 0 0 12px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
+  max-width: 420px;
   font-size: 32px;
   font-weight: 500;
   line-height: 32px;
@@ -22,10 +24,10 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
 
 .profile__description {
@@ -37,14 +39,19 @@
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 97px;
 }
 
 .profile__column {
   display: flex;
   flex-direction: column;
   justify-self: space-between;
-  width: 420px;
-  height: 190px;
+  max-width: 420px;
 }
 
 .profile__edit-btn {
@@ -65,7 +72,7 @@
 
 .profile__edit-btn:hover {
   cursor: pointer;
-  color: rgba(33, 33, 33, 1);
+  opacity: 1;
   transition: color 0.5s ease-in;
 }
 
@@ -90,8 +97,13 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: 500;
-  cursor: pointer;
   color: #fcf5e5;
+}
+
+.profile__add-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: color 0.5s ease-in;
 }
 
 @media screen and (max-width: 627px) {
@@ -107,18 +119,21 @@
     height: 80px;
     width: 80px;
   }
+
   .profile__name {
     font-size: 20px;
     margin: 0 0 6px;
-
-    .profile__description {
-      margin: 0 0 32px;
-    }
-
-    .profile__column {
-      margin: 0 0 20px;
-    }
+    line-height: 20px;
   }
+
+  .profile__description {
+    margin: 0 0 32px;
+  }
+
+  .profile__column {
+    margin: 0 0 20px;
+  }
+
   .profile__add-btn {
     margin: 0;
   }
