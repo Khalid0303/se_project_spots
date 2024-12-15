@@ -1,8 +1,8 @@
 .card {
   max-width: 413px;
-  height: 445px;
 }
 .card__image {
+  margin-bottom: 12px;
   height: 413px;
   width: 100%;
   object-fit: cover;
@@ -41,11 +41,10 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
+  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   text-decoration-skip-ink: none;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
 }
 
 @media screen and (max-width: 627px) {
@@ -56,5 +55,6 @@
   .card__title {
     font-size: 16px;
     line-height: 16px;
+    max-width: 250px;
   }
 }
