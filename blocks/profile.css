@@ -117,8 +117,14 @@
   }
   .profile__avatar {
     margin: 0;
+    margin-bottom: 12px;
     height: 80px;
     width: 80px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 6px;
   }
 
   .profile__name {
@@ -129,6 +135,11 @@
 
   .profile__description {
     margin: 0 0 32px;
+    color: rgba(33, 33, 33, 0.7);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
   }
 
   .profile__column {
