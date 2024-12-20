@@ -46,7 +46,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  max-width: 240px;
+  max-width: 420px;
   color: #212121b2;
 }
 
@@ -130,6 +130,7 @@
     font-size: 20px;
     margin: 0 0 6px;
     line-height: 20px;
+    text-align: center;
   }
 
   .profile__description {
