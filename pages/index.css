@@ -1,5 +1,9 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
+<<<<<<< HEAD
+=======
+@import url(../blocks/modal.css);
+>>>>>>> 9ac26bc (Initial commit)
 @import url(../blocks/header.css);
 @import url(../blocks/page.css);
 @import url(../blocks/content.css);
