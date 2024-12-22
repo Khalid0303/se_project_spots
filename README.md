@@ -33,3 +33,5 @@ The design for the project was created using Figma. You can view the design file
 This webpage is deployed to GitHub Pages:
 
 -Deployment Link: https://khalid0303.github.io/se_project_spots
+
+- A short introduction vido to my project: https://drive.google.com/drive/folders/1nKZ6LdV09D-XdRBsGx9KZevpmrA_K-rU?usp=drive_link
