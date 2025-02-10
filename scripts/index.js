@@ -28,7 +28,6 @@ const initialCards = [
 console.log(initialCards);
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
-
 const profileAddButton = document.querySelector(".profile__add-btn");
 
 const profileName = document.querySelector(".profile__name");
@@ -51,7 +50,10 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
-const previewModalCaptionEL = previewModal.querySelector("modal__caption");
+const previewModalCaptionEL = previewModal.querySelector(".modal__caption");
+
+// Select the close button for preview modal
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -77,6 +79,7 @@ function getCardElement(data) {
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
     previewModalImageEl.src = data.link;
+    previewModalImageEl.alt = data.name;
   });
 
   cardDeleteBtn.addEventListener("click", () => {
@@ -112,20 +115,6 @@ function handleAddCardSubmit(evt) {
   closeModal(cardModal);
 }
 
-function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-
-  const inputValues = {
-    name: cardNameInput.value,
-    link: cardLinkInput.value,
-  };
-  const cardElement = getCardElement(inputValues);
-
-  cardsList.prepend(cardElement);
-
-  closeModal(cardModal);
-}
-
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
@@ -142,6 +131,11 @@ cardModalCloseBtn.addEventListener("click", () => {
 
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
+});
+
+// Add event listener to close the preview modal when the close button is clicked
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal); // This will close the preview modal
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
