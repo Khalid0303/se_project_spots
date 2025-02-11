@@ -10,11 +10,15 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
   border-radius: 8px;
+  transition: opacity 0.1s ease-in, visibility 0s 0.1s;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
 }
 
 .modal__container {
@@ -37,6 +41,7 @@
   max-width: 80vw;
   max-height: 80vh;
   width: unset;
+  background-color: transparent;
 }
 
 .modal__image {
@@ -62,12 +67,12 @@
 .modal__close-btn:hover {
   cursor: pointer;
   opacity: 1;
-  background-image: url(../images/modal_close_btn_hover.svg);
+  background-image: url(../images/Property\ 1=Variant2.svg);
   transition: color 0.5s ease-in;
 }
 
 .modal__close-btn_type_preview {
-  background-image: url(../images/practice.svg);
+  background-image: url(../images/close_icon.svg);
   top: 0;
   left: calc(100% + 12.5px);
   height: 22.63px;
@@ -202,5 +207,10 @@
     bottom: calc(100% + 8px);
     left: unset;
     top: unset;
+  }
+
+  .modal__image {
+    max-width: 90vw;
+    max-height: 90vh;
   }
 }

@@ -112,8 +112,6 @@
   background-color: #212121cc;
 }
 
-
-
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;

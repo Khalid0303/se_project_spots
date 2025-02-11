@@ -80,6 +80,7 @@ function getCardElement(data) {
     openModal(previewModal);
     previewModalImageEl.src = data.link;
     previewModalImageEl.alt = data.name;
+    previewModalCaptionEL.textContent = data.name;
   });
 
   cardDeleteBtn.addEventListener("click", () => {
@@ -112,6 +113,10 @@ function handleAddCardSubmit(evt) {
 
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
+
   closeModal(cardModal);
 }
 
