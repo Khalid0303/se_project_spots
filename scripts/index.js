@@ -53,6 +53,10 @@ const editModalDescriptionInput = editModal.querySelector(
 );
 
 const cardModal = document.querySelector("#add-card-modal");
+cardModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal")) closeModal(cardModal);
+});
+
 const cardForm = cardModal.querySelector(config.formSelector);
 
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
@@ -67,6 +71,12 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+document.addEventListener("keydown", (event) => {
+  const modal = document.querySelector(".modal_opened");
+  if (event.key === "Escape") {
+    closeModal(modal);
+  }
+});
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
