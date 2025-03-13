@@ -16,15 +16,14 @@ const showInputError = (formEl, inputEl, errorMsg, config) => {
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
-  inputEl.classList.remove(config.inputErrorClass); // Hide the error message
+  inputEl.classList.remove(config.inputErrorClass);
 };
 
 const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl.validationMessage, config); // Pass config
-    // Show error if input is invalid
+    showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
-    hideInputError(formEl, inputEl, config); // Hide error if input is valid.
+    hideInputError(formEl, inputEl, config);
   }
 };
 
@@ -36,15 +35,10 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
-    // disable the submit button (ie: add the disabled attribute to the submit button)
     buttonEl.disabled = true;
-    // make the submit button look disabled (ie: give it a class to make it look greyed out)
     buttonEl.classList.add(config.inactiveButtonClass);
   } else {
-    // enabling the submit button
     buttonEl.disabled = false;
-    //TOTO - remove the disabled class - the below was added.
-    // making the submit button look enabled by removing the class that makes it look disabled
     buttonEl.classList.remove(config.inactiveButtonClass);
   }
 };
@@ -52,18 +46,13 @@ const toggleButtonState = (inputList, buttonEl, config) => {
 const disabledButton = (buttonEl, config) => {
   buttonEl.disabled = true;
   buttonEl.classList.add(config.inactiveButtonClass);
-  //TODO - Add a modifier class to the buttonEl to make it grey
-  //TODo - Do not forget CCS
 };
 
-// Optional
 const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
     hideInputError(formEl, input, config);
   });
 };
-
-//TODO - use the settings object in all functions instead of hard-coded strings.
 
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));

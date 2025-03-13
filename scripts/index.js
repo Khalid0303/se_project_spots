@@ -1,5 +1,3 @@
-//TODO - pass settings object to the validation functions that are called in this file.
-
 const initialCards = [
   {
     name: "Val Thorens",
@@ -56,13 +54,12 @@ const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
-// 1
+
 const cardModal = document.querySelector("#add-card-modal");
 cardModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal")) closeModal(cardModal);
 });
 
-// for the submit btn
 const cardSubmitButton = cardModal.querySelector(".modal__submit-btn");
 const cardForm = cardModal.querySelector(config.formSelector);
 
@@ -80,7 +77,6 @@ const previewModalCaptionEL = previewModal.querySelector(".modal__caption");
 
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
-//2
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
@@ -149,7 +145,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   evt.target.reset();
-  disabledButton(cardSubmitButton, settings); // I am not sure if it is correct (video timestamp: 12:30)
+  disabledButton(cardSubmitButton, settings);
 
   cardNameInput.value = "";
   cardLinkInput.value = "";
@@ -175,9 +171,8 @@ editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
 
-// Add event listener to close the preview modal when the close button is clicked
 previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal); // This closes the preview modal.
+  closeModal(previewModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
