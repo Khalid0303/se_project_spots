@@ -10,18 +10,18 @@ const settings = {
 const showInputError = (formEl, inputEl, errorMsg, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
-  errorMsgEl.classList.add(config.inputErrorClass);
+  inputEl.classList.add(config.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, config) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
-  errorMsgEl.classList.remove(config.inputErrorClass); // Hide the error message
+  inputEl.classList.remove(config.inputErrorClass); // Hide the error message
 };
 
 const checkInputValidity = (formEl, inputEl, config) => {
   if (!inputEl.validity.valid) {
-    showInputError(formEl, inputEl, inputEl.validationMessage, config); // Pass config // Pass config
+    showInputError(formEl, inputEl, inputEl.validationMessage, config); // Pass config
     // Show error if input is invalid
   } else {
     hideInputError(formEl, inputEl, config); // Hide error if input is valid.
@@ -36,9 +36,15 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
+    // disable the submit button (ie: add the disabled attribute to the submit button)
+    buttonEl.disabled = true;
+    // make the submit button look disabled (ie: give it a class to make it look greyed out)
+    buttonEl.classList.add(config.inactiveButtonClass);
   } else {
+    // enabling the submit button
     buttonEl.disabled = false;
     //TOTO - remove the disabled class - the below was added.
+    // making the submit button look enabled by removing the class that makes it look disabled
     buttonEl.classList.remove(config.inactiveButtonClass);
   }
 };
@@ -62,9 +68,6 @@ const resetValidation = (formEl, inputList, config) => {
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
-
-  // TODO - handle initial states.
-  toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {

@@ -45,18 +45,25 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
+
+editModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal")) closeModal(editModal);
+});
+
 const editFormElement = editModal.querySelector(config.formSelector);
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
-
+// 1
 const cardModal = document.querySelector("#add-card-modal");
 cardModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal")) closeModal(cardModal);
 });
 
+// for the submit btn
+const cardSubmitButton = cardModal.querySelector(".modal__submit-btn");
 const cardForm = cardModal.querySelector(config.formSelector);
 
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
@@ -64,19 +71,18 @@ const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 const previewModal = document.querySelector("#preview-modal");
+previewModal.addEventListener("click", (event) => {
+  if (event.target.classList.contains("modal")) closeModal(previewModal);
+});
+
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEL = previewModal.querySelector(".modal__caption");
 
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
+//2
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
-document.addEventListener("keydown", (event) => {
-  const modal = document.querySelector(".modal_opened");
-  if (event.key === "Escape") {
-    closeModal(modal);
-  }
-});
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -109,12 +115,21 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function handlePressEsc(event) {
+  const modal = document.querySelector(".modal_opened");
+  if (event.key === "Escape") {
+    closeModal(modal);
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handlePressEsc);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handlePressEsc);
 }
 
 function handleEditFormSubmit(evt) {
