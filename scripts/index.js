@@ -25,15 +25,6 @@ const initialCards = [
   },
 ];
 
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn",
-  inactiveButtonClass: "modal__submit-btn_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
-
 console.log(initialCards);
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
@@ -48,7 +39,7 @@ editModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal")) closeModal(editModal);
 });
 
-const editFormElement = editModal.querySelector(config.formSelector);
+const editFormElement = editModal.querySelector("#edit-profile-form");
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
@@ -61,7 +52,7 @@ cardModal.addEventListener("click", (event) => {
 });
 
 const cardSubmitButton = cardModal.querySelector(".modal__submit-btn");
-const cardForm = cardModal.querySelector(config.formSelector);
+const cardForm = cardModal.querySelector("#add-card-form");
 
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
@@ -112,8 +103,8 @@ function getCardElement(data) {
 }
 
 function handlePressEsc(event) {
-  const modal = document.querySelector(".modal_opened");
   if (event.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
     closeModal(modal);
   }
 }
@@ -147,15 +138,13 @@ function handleAddCardSubmit(evt) {
   evt.target.reset();
   disabledButton(cardSubmitButton, settings);
 
-  cardNameInput.value = "";
-  cardLinkInput.value = "";
-
   closeModal(cardModal);
 }
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  resetValidation(editFormElement, settings);
   openModal(editModal);
 });
 
