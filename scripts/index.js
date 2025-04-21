@@ -1,3 +1,10 @@
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+  disabledButton,
+} from "./validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -25,16 +32,12 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
-
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
-
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
-
 editModal.addEventListener("click", (event) => {
   if (event.target.classList.contains("modal")) closeModal(editModal);
 });
@@ -53,7 +56,6 @@ cardModal.addEventListener("click", (event) => {
 
 const cardSubmitButton = cardModal.querySelector(".modal__submit-btn");
 const cardForm = cardModal.querySelector("#add-card-form");
-
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -65,7 +67,6 @@ previewModal.addEventListener("click", (event) => {
 
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEL = previewModal.querySelector(".modal__caption");
-
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
 const cardTemplate = document.querySelector("#card-template");
@@ -89,6 +90,7 @@ function getCardElement(data) {
   cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
+
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
     previewModalImageEl.src = data.link;
@@ -99,6 +101,7 @@ function getCardElement(data) {
   cardDeleteBtn.addEventListener("click", () => {
     cardElement.remove();
   });
+
   return cardElement;
 }
 
@@ -167,7 +170,9 @@ previewModalCloseBtn.addEventListener("click", () => {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-for (let i = 0; i < initialCards.length; i++) {
-  const cardElement = getCardElement(initialCards[i]);
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
   cardsList.prepend(cardElement);
-}
+});
+
+enableValidation(settings);
