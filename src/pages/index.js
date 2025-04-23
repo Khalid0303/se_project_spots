@@ -1,9 +1,23 @@
+import "./index.css";
+
+// Import images
+import logoImage from "../images/spots-logo.svg";
+import avatarImage from "../images/user-avatar.jpg";
+import pencilImage from "../images/pencil-icon.svg";
+import plusImage from "../images/plus.svg";
+
+// it sets image sources dynamically
+document.querySelector(".header__logo").src = logoImage;
+document.querySelector(".profile__avatar").src = avatarImage;
+document.querySelector(".profile__edit-btn-icon").src = pencilImage;
+document.querySelector(".profile__add-img").src = plusImage;
+
 import {
   enableValidation,
   settings,
   resetValidation,
   disabledButton,
-} from "./validation.js";
+} from "../scripts/validation.js";
 
 const initialCards = [
   {
