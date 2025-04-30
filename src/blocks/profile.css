@@ -1,0 +1,204 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
+}
+
+.profile__avatar-container {
+  position: relative;
+  margin-right: 20px; /* Move margin here */
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  visibility: hidden;
+  /* TODO - finish avatar button style */
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
+  /* cursor: pointer;
+  transition: all 0.5s ease-in; */
+}
+
+.profile__avatar-btn::after {
+  content: "Edit Avatar:";
+}
+
+.profile__avatar {
+  margin: 0; /* Remove margin here */
+  object-fit: cover;
+  font-size: 20px;
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+}
+
+.profile__name {
+  margin: 0 0 12px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  max-width: 420px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  color: #212121;
+}
+
+.profile__description {
+  margin: 0;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+  color: #212121b2;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+  justify-self: space-between;
+  max-width: 420px;
+}
+
+.profile__edit-btn {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  border: none;
+  color: rgba(33, 33, 33, 1);
+  background-color: rgba(33, 33, 33, 0);
+  opacity: 0.7;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  background-repeat: no-repeat;
+  text-align: left;
+  border: none;
+}
+
+.profile__edit-btn:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: color 0.5s ease-in;
+}
+
+.profile__edit-btn-text {
+  margin-right: auto;
+  margin-right: 20px;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.profile__add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  margin-left: auto;
+  margin-top: auto;
+  padding: 18px 32px 18px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  color: rgba(33, 33, 33, 1);
+  background: #212121;
+  border: none;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #fcf5e5;
+}
+
+.profile__add-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: color 0.5s ease-in;
+  background-color: #212121cc;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .profile__avatar {
+    margin: 0;
+    margin-bottom: 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__avatar-btn {
+    visibility: visible; /* Make button visible by default */
+    /* TODO - finish avatar button style */
+  }
+
+  .profile__avatar-btn::after {
+    content: ""; /* Removes the "Edit Avatar:" text */
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .profile__description {
+    margin: 0 0 32px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .profile__column {
+    margin: 0 0 20px;
+  }
+
+  .profile__edit-btn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .profile__edit-btn-text {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 84px;
+    height: 16px;
+    text-align: center;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+    padding: 18px 32px 18px 32px;
+    width: 288px;
+    height: 52px;
+  }
+}
