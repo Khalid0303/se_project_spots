@@ -145,6 +145,7 @@
   margin-right: 20px;
   gap: 8px;
   border-radius: 8px;
+  text-align: center;
 }
 
 .profile__add-btn {
@@ -328,12 +329,10 @@
   }
 
   .profile__edit-btn-text {
-    text-align: center;
     margin: 0;
     padding: 0;
     width: 84px;
     height: 16px;
-    text-align: center;
   }
 
   .profile__add-btn {

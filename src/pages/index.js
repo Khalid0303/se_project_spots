@@ -1,4 +1,12 @@
+import { setLoadingState } from "../../utils/helper.js";
 import Api from "../../utils/Api.js";
+import "./index.css";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+  disabledButton,
+} from "../scripts/validation.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -7,14 +15,6 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
-import "./index.css";
-import {
-  enableValidation,
-  settings,
-  resetValidation,
-  disabledButton,
-} from "../scripts/validation.js";
 
 let selectedCard;
 let selectedCardId;
@@ -109,7 +109,8 @@ function handleDeleteCard(cardElement, data) {
   openModal(deleteModal);
 }
 
-function getCardElement(data) {
+function getCardElement(data, userId) {
+  // Accept userId here
   const cardElement = cardTemplate.content
     .cloneNode(true)
     .querySelector(".card");
@@ -125,20 +126,16 @@ function getCardElement(data) {
   cardNameEl.textContent = data.name;
 
   const isLikedByUser =
-    data.likes && data.likes.some((like) => like._id === userId);
+    userId && data.likes && data.likes.some((like) => like._id === userId);
 
-  // Set the like count and check for likes array existence
   likeCountEl.textContent = Array.isArray(data.likes) ? data.likes.length : 0;
 
-  // Check if the card is liked (using localStorage)
   const isLiked = localStorage.getItem(`card-${data._id}-liked`) === "true";
 
-  // If the card is liked, add the "liked" class to the button
   if (isLiked) {
     cardLikeButton.classList.add("card__like-btn_liked");
   }
 
-  // Update like button state based on whether the current user has liked the card
   if (isLikedByUser) {
     cardLikeButton.classList.add("card__like-btn_liked");
   }
@@ -155,11 +152,10 @@ function getCardElement(data) {
           ? updatedCard.likes.length
           : 0;
 
-        // Save the like status in localStorage
         if (cardLikeButton.classList.contains("card__like-btn_liked")) {
-          localStorage.setItem(`card-${data._id}-liked`, "true"); // Save liked status
+          localStorage.setItem(`card-${data._id}-liked`, "true");
         } else {
-          localStorage.removeItem(`card-${data._id}-liked`); // Remove liked status
+          localStorage.removeItem(`card-${data._id}-liked`);
         }
       })
       .catch((err) => {
@@ -190,7 +186,7 @@ api
     profileAvatar.src = userData.avatar;
 
     cards.forEach((cardData) => {
-      cardsList.append(getCardElement(cardData));
+      cardsList.append(getCardElement(cardData, userId));
     });
   })
   .catch((err) => {
@@ -235,8 +231,8 @@ editModalCloseBtn.addEventListener("click", function () {
 editFormElement.addEventListener("submit", function (event) {
   event.preventDefault();
   const submitButton = editFormElement.querySelector(".modal__submit-btn");
-  submitButton.textContent = "Saving...";
-  submitButton.disabled = true;
+
+  setLoadingState(submitButton, true);
 
   api
     .editUserInfo({
@@ -250,8 +246,7 @@ editFormElement.addEventListener("submit", function (event) {
     })
     .catch(console.error)
     .finally(() => {
-      submitButton.textContent = "Save";
-      submitButton.disabled = false;
+      setLoadingState(submitButton, false);
     });
 });
 
@@ -269,7 +264,7 @@ cardForm.addEventListener("submit", function (event) {
   api
     .addCard(cardData)
     .then((newCard) => {
-      cardsList.prepend(getCardElement(newCard));
+      cardsList.prepend(getCardElement(newCard, userId));
       cardForm.reset();
       closeModal(cardModal);
     })
