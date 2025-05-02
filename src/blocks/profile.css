@@ -5,6 +5,7 @@
   border-bottom: 1px solid rgba(33, 33, 33, 0.4);
 }
 
+<<<<<<< HEAD
 .profile__avatar-container {
   position: relative;
   margin-right: 20px;
@@ -67,6 +68,10 @@
 
 .profile__avatar {
   margin: 0; /* Remove margin here */
+=======
+.profile__avatar {
+  margin-right: 20px;
+>>>>>>> 3025530fbfdd3bbf45c7f825df4d1549eb6b0504
   object-fit: cover;
   font-size: 20px;
   width: 190px;
@@ -130,6 +135,10 @@
   line-height: 16px;
   background-repeat: no-repeat;
   text-align: left;
+<<<<<<< HEAD
+=======
+  border: none;
+>>>>>>> 3025530fbfdd3bbf45c7f825df4d1549eb6b0504
 }
 
 .profile__edit-btn:hover {
@@ -139,6 +148,10 @@
 }
 
 .profile__edit-btn-text {
+<<<<<<< HEAD
+=======
+  margin-right: auto;
+>>>>>>> 3025530fbfdd3bbf45c7f825df4d1549eb6b0504
   margin-right: 20px;
   gap: 8px;
   border-radius: 8px;
@@ -170,6 +183,7 @@
   background-color: #212121cc;
 }
 
+<<<<<<< HEAD
 .modal__container_type_delete {
   position: relative;
   background: #ffffff;
@@ -254,6 +268,8 @@
   transition: color 0.5s ease-in;
 }
 
+=======
+>>>>>>> 3025530fbfdd3bbf45c7f825df4d1549eb6b0504
 @media screen and (max-width: 627px) {
   .profile {
     flex-direction: column;
@@ -262,6 +278,7 @@
     text-align: center;
     padding-top: 20px;
   }
+<<<<<<< HEAD
 
   .profile__avatar-container {
     width: 80px;
@@ -303,6 +320,15 @@
 
   /* until this part */
 
+=======
+  .profile__avatar {
+    margin: 0;
+    margin-bottom: 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+>>>>>>> 3025530fbfdd3bbf45c7f825df4d1549eb6b0504
   .profile__name {
     font-size: 20px;
     margin: 0 0 6px;
@@ -342,6 +368,7 @@
     width: 288px;
     height: 52px;
   }
+<<<<<<< HEAD
 
   .modal__close-btn_type_delete {
     top: -50px;
@@ -350,4 +377,6 @@
   .modal__container_type_delete {
     padding: 12px;
   }
+=======
+>>>>>>> 3025530fbfdd3bbf45c7f825df4d1549eb6b0504
 }
