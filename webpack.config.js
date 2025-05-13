@@ -20,7 +20,7 @@ module.exports = {
     open: true,
   },
   module: {
-    rules: [git commit -m "Initial commit"
+    rules: [
       {
         test: /\.js$/,
         use: "babel-loader",
