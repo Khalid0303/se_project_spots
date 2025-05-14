@@ -78,6 +78,10 @@ avatarModal.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal")) closeModal(avatarModal);
 });
 
+deleteModal.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) closeModal(deleteModal);
+});
+
 avatarModalBtn.addEventListener("click", () => {
   resetValidation(avatarForm, settings);
   const submitButton = avatarForm.querySelector(".modal__submit-btn");
@@ -97,6 +101,9 @@ deleteModalCancelBtn.addEventListener("click", () => closeModal(deleteModal));
 avatarForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const avatarUrl = avatarInput.value;
+  const submitButton = avatarForm.querySelector(".modal__submit-btn");
+
+  setLoadingState(submitButton, true, "Saving...");
 
   api
     .editAvatarInfo({ avatar: avatarUrl })
@@ -104,7 +111,8 @@ avatarForm.addEventListener("submit", (e) => {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
     })
-    .catch((err) => console.error("Error saving avatar:", err));
+    .catch((err) => console.error("Error saving avatar:", err))
+    .finally(() => setLoadingState(submitButton, false, "Save"));
 });
 
 editFormElement.addEventListener("submit", (e) => {
@@ -128,6 +136,9 @@ editFormElement.addEventListener("submit", (e) => {
 
 cardForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  const submitButton = cardForm.querySelector(".modal__submit-btn");
+
+  setLoadingState(submitButton, true, "Saving...");
 
   api
     .addCard({
@@ -139,18 +150,24 @@ cardForm.addEventListener("submit", (e) => {
       cardForm.reset();
       closeModal(cardModal);
     })
-    .catch((err) => console.error("Error adding card:", err));
+    .catch((err) => console.error("Error adding card:", err))
+    .finally(() => setLoadingState(submitButton, false, "Create"));
 });
 
 deleteModal.querySelector(".modal__form").addEventListener("submit", (e) => {
   e.preventDefault();
+  const submitButton = deleteModal.querySelector(".modal__submit-btn");
+
+  setLoadingState(submitButton, true, "Deleting...");
+
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
     })
-    .catch((err) => console.error("Error deleting card:", err));
+    .catch((err) => console.error("Error deleting card:", err))
+    .finally(() => setLoadingState(submitButton, false, "Delete"));
 });
 
 // ============ Buttons ============
